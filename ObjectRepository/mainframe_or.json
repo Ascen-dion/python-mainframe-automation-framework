@@ -1,0 +1,12 @@
+{
+    "screens": {
+        "telehack_welcome": {
+            "TXT_SERVER_PORT": {"row": 2, "col": 28, "length": 3},
+            "TXT_SYSTEM_TIME": {"row": 4, "col": 7, "length": 8},
+            "TXT_SERVER_DATE": {"row": 4, "col": 18, "length": 23},
+            "TXT_LOCATION": {"row": 4, "col": 45, "length": 30},
+            "TXT_LOCAL_USERS": {"row": 5, "col": 11, "length": 3},
+            "TXT_TOTAL_HOSTS": {"row": 5, "col": 38, "length": 5}
+        }
+    }
+}

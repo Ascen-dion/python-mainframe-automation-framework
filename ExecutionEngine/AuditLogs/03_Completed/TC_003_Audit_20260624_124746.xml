@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<AuditLog>
+    <TestCaseID>TC_003</TestCaseID>
+    <StartTime>2026-06-24 12:47:46.857603</StartTime>
+    <ExecutionSteps>
+        <Step>
+            <Timestamp>12:47:46.859</Timestamp>
+            <Action>SYSTEM</Action>
+            <Status>INFO</Status>
+            <Details>Executing: Validate ORD Weather</Details>
+        </Step>
+        <Step>
+            <Timestamp>12:47:46.861</Timestamp>
+            <Action>LOGIN</Action>
+            <Status>INFO</Status>
+            <Details>Simulating Authentication for User: JARVIS_USR1</Details>
+        </Step>
+        <Step>
+            <Timestamp>12:47:46.864</Timestamp>
+            <Action>NAVIGATE</Action>
+            <Status>INFO</Status>
+            <Details>Verifying main terminal prompt.</Details>
+        </Step>
+        <Step>
+            <Timestamp>12:47:47.082</Timestamp>
+            <Action>INPUT</Action>
+            <Status>INFO</Status>
+            <Details>Entering weather command for: ORD</Details>
+        </Step>
+        <Step>
+            <Timestamp>12:47:51.003</Timestamp>
+            <Action>READ</Action>
+            <Status>INFO</Status>
+            <Details>Capturing updated weather forecast screen.</Details>
+        </Step>
+        <Step>
+            <Timestamp>12:47:51.219</Timestamp>
+            <Action>EXTRACT</Action>
+            <Status>INFO</Status>
+            <Details>Screen payload captured successfully.</Details>
+        </Step>
+        <Step>
+            <Timestamp>12:47:51.222</Timestamp>
+            <Action>NAVIGATE</Action>
+            <Status>INFO</Status>
+            <Details>Resetting screen back to main menu.</Details>
+        </Step>
+        <Step>
+            <Timestamp>12:47:52.437</Timestamp>
+            <Action>FLOW_END</Action>
+            <Status>INFO</Status>
+            <Details>Status: Passed | Duration: 5.58s</Details>
+        </Step>
+    </ExecutionSteps>
+</AuditLog>

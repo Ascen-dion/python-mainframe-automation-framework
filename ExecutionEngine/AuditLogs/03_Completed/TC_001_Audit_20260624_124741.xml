@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<AuditLog>
+    <TestCaseID>TC_001</TestCaseID>
+    <StartTime>2026-06-24 12:47:41.278246</StartTime>
+    <ExecutionSteps>
+        <Step>
+            <Timestamp>12:47:41.288</Timestamp>
+            <Action>SYSTEM</Action>
+            <Status>INFO</Status>
+            <Details>Executing: Validate JFK Weather</Details>
+        </Step>
+        <Step>
+            <Timestamp>12:47:41.290</Timestamp>
+            <Action>LOGIN</Action>
+            <Status>INFO</Status>
+            <Details>Simulating Authentication for User: JARVIS_USR1</Details>
+        </Step>
+        <Step>
+            <Timestamp>12:47:41.291</Timestamp>
+            <Action>NAVIGATE</Action>
+            <Status>INFO</Status>
+            <Details>Verifying main terminal prompt.</Details>
+        </Step>
+        <Step>
+            <Timestamp>12:47:41.506</Timestamp>
+            <Action>INPUT</Action>
+            <Status>INFO</Status>
+            <Details>Entering weather command for: JFK</Details>
+        </Step>
+        <Step>
+            <Timestamp>12:47:45.423</Timestamp>
+            <Action>READ</Action>
+            <Status>INFO</Status>
+            <Details>Capturing updated weather forecast screen.</Details>
+        </Step>
+        <Step>
+            <Timestamp>12:47:45.626</Timestamp>
+            <Action>EXTRACT</Action>
+            <Status>INFO</Status>
+            <Details>Screen payload captured successfully.</Details>
+        </Step>
+        <Step>
+            <Timestamp>12:47:45.629</Timestamp>
+            <Action>NAVIGATE</Action>
+            <Status>INFO</Status>
+            <Details>Resetting screen back to main menu.</Details>
+        </Step>
+        <Step>
+            <Timestamp>12:47:46.850</Timestamp>
+            <Action>FLOW_END</Action>
+            <Status>INFO</Status>
+            <Details>Status: Passed | Duration: 5.57s</Details>
+        </Step>
+    </ExecutionSteps>
+</AuditLog>
