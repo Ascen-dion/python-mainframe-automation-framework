@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<AuditLog>
+    <TestCaseID>TC_001</TestCaseID>
+    <StartTime>2026-06-26 13:44:49.209286</StartTime>
+    <ExecutionSteps>
+        <Step>
+            <Timestamp>13:44:49.215</Timestamp>
+            <Action>SYSTEM</Action>
+            <Status>INFO</Status>
+            <Details>Executing: Validate JFK Airport Weather (Flow: Weather)</Details>
+        </Step>
+        <Step>
+            <Timestamp>13:44:49.219</Timestamp>
+            <Action>LOGIN</Action>
+            <Status>INFO</Status>
+            <Details>Simulating Authentication for User: GUEST</Details>
+        </Step>
+        <Step>
+            <Timestamp>13:44:49.220</Timestamp>
+            <Action>NAVIGATE</Action>
+            <Status>INFO</Status>
+            <Details>Verifying main terminal prompt.</Details>
+        </Step>
+        <Step>
+            <Timestamp>13:44:49.426</Timestamp>
+            <Action>INPUT</Action>
+            <Status>INFO</Status>
+            <Details>Entering weather command for: JFK</Details>
+        </Step>
+        <Step>
+            <Timestamp>13:44:50.037</Timestamp>
+            <Action>READ</Action>
+            <Status>INFO</Status>
+            <Details>Waiting for server to process...</Details>
+        </Step>
+        <Step>
+            <Timestamp>13:45:11.429</Timestamp>
+            <Action>EXTRACT</Action>
+            <Status>INFO</Status>
+            <Details>Screen payload captured successfully.</Details>
+        </Step>
+        <Step>
+            <Timestamp>13:45:11.431</Timestamp>
+            <Action>NAVIGATE</Action>
+            <Status>INFO</Status>
+            <Details>Ensuring clean menu state...</Details>
+        </Step>
+        <Step>
+            <Timestamp>13:45:11.649</Timestamp>
+            <Action>FLOW_END</Action>
+            <Status>INFO</Status>
+            <Details>Status: Passed | Duration: 22.44s</Details>
+        </Step>
+    </ExecutionSteps>
+</AuditLog>

@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<AuditLog>
+    <TestCaseID>TC_003</TestCaseID>
+    <StartTime>2026-06-26 13:49:59.230493</StartTime>
+    <ExecutionSteps>
+        <Step>
+            <Timestamp>13:49:59.232</Timestamp>
+            <Action>SYSTEM</Action>
+            <Status>INFO</Status>
+            <Details>Executing: Locate Google DNS IP Server (Flow: GeoIP)</Details>
+        </Step>
+        <Step>
+            <Timestamp>13:49:59.235</Timestamp>
+            <Action>NAVIGATE</Action>
+            <Status>INFO</Status>
+            <Details>Verifying main terminal prompt.</Details>
+        </Step>
+        <Step>
+            <Timestamp>13:49:59.442</Timestamp>
+            <Action>INPUT</Action>
+            <Status>INFO</Status>
+            <Details>Executing ping for: 8.8.8.8</Details>
+        </Step>
+        <Step>
+            <Timestamp>13:50:00.073</Timestamp>
+            <Action>READ</Action>
+            <Status>INFO</Status>
+            <Details>Waiting for ping response...</Details>
+        </Step>
+        <Step>
+            <Timestamp>13:50:15.138</Timestamp>
+            <Action>EXTRACT</Action>
+            <Status>INFO</Status>
+            <Details>Ping payload captured successfully.</Details>
+        </Step>
+        <Step>
+            <Timestamp>13:50:15.140</Timestamp>
+            <Action>FLOW_END</Action>
+            <Status>INFO</Status>
+            <Details>Status: Passed | Duration: 15.91s</Details>
+        </Step>
+    </ExecutionSteps>
+</AuditLog>

@@ -10,7 +10,10 @@ from Libraries.mainframe_core import MainframeCore
 from Libraries.audit_logger import XMLAuditLogger
 from Libraries.html_reporter import generate_reports
 from Libraries.excel_utils import get_test_data
+
+# Import BOTH business flows
 from TestFlows.weather_lookup_flow import execute_weather_flow
+from TestFlows.geoip_lookup_flow import execute_geoip_flow
 
 class EnterpriseDriver:
     def __init__(self, mode="headless", start_time=None):
@@ -27,28 +30,40 @@ class EnterpriseDriver:
             self.engine.start_session()
             
             for index, row_data in enumerate(test_cases):
-                # Start individual test timer
                 tc_start = time.time()
                 
-                # Extract relational data correctly
+                # Extract root data
                 tc_id = row_data.get("TC_ID", f"TC_UNKNOWN_{index}")
                 description = row_data.get("Description", "No Description")
-                target_airport = row_data.get("WeatherData", {}).get("AirportCode", "N/A")
+                flow_type = row_data.get("FlowType", "Unknown")
                 
                 logger = XMLAuditLogger(tc_id)
-                logger.log_step("SYSTEM", f"Executing: {description}")
+                logger.log_step("SYSTEM", f"Executing: {description} (Flow: {flow_type})")
                 logger.update_status("executing")
                 
-                result = execute_weather_flow(self.engine, row_data, logger)
+                # ==========================================
+                # DYNAMIC FLOW ROUTING
+                # ==========================================
+                if flow_type == "Weather":
+                    target = row_data.get("WeatherData", {}).get("AirportCode", "N/A")
+                    result = execute_weather_flow(self.engine, row_data, logger)
                 
-                # Calculate Duration
+                elif flow_type == "GeoIP":
+                    target = row_data.get("GeoIPData", {}).get("IP_Address", "N/A")
+                    result = execute_geoip_flow(self.engine, row_data, logger)
+                    
+                else:
+                    logger.log_step("ERROR", f"Unknown FlowType: {flow_type}")
+                    result = {"status": "Failed", "forecast": "Routing Error"}
+                    target = "N/A"
+                # ==========================================
+                
                 tc_duration = round(time.time() - tc_start, 2)
                 
-                # Pass clean, extracted data to the HTML reporter
                 self.batch_results.append({
                     "tc_id": tc_id,
                     "description": description,
-                    "airport": target_airport,
+                    "airport": target,
                     "duration": tc_duration,
                     "status": result.get("status", "Failed"),
                     "forecast": result.get("forecast", "No data captured")

@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<AuditLog>
+    <TestCaseID>TC_002</TestCaseID>
+    <StartTime>2026-06-26 13:49:53.872726</StartTime>
+    <ExecutionSteps>
+        <Step>
+            <Timestamp>13:49:53.873</Timestamp>
+            <Action>SYSTEM</Action>
+            <Status>INFO</Status>
+            <Details>Executing: Validate LAX Airport Weather (Flow: Weather)</Details>
+        </Step>
+        <Step>
+            <Timestamp>13:49:53.875</Timestamp>
+            <Action>LOGIN</Action>
+            <Status>INFO</Status>
+            <Details>Simulating Authentication for User: GUEST</Details>
+        </Step>
+        <Step>
+            <Timestamp>13:49:53.877</Timestamp>
+            <Action>NAVIGATE</Action>
+            <Status>INFO</Status>
+            <Details>Verifying main terminal prompt.</Details>
+        </Step>
+        <Step>
+            <Timestamp>13:49:54.085</Timestamp>
+            <Action>INPUT</Action>
+            <Status>INFO</Status>
+            <Details>Entering weather command for: LAX</Details>
+        </Step>
+        <Step>
+            <Timestamp>13:49:54.720</Timestamp>
+            <Action>READ</Action>
+            <Status>INFO</Status>
+            <Details>Waiting for server to process...</Details>
+        </Step>
+        <Step>
+            <Timestamp>13:49:59.008</Timestamp>
+            <Action>EXTRACT</Action>
+            <Status>INFO</Status>
+            <Details>Screen payload captured successfully.</Details>
+        </Step>
+        <Step>
+            <Timestamp>13:49:59.011</Timestamp>
+            <Action>NAVIGATE</Action>
+            <Status>INFO</Status>
+            <Details>Ensuring clean menu state...</Details>
+        </Step>
+        <Step>
+            <Timestamp>13:49:59.225</Timestamp>
+            <Action>FLOW_END</Action>
+            <Status>INFO</Status>
+            <Details>Status: Passed | Duration: 5.35s</Details>
+        </Step>
+    </ExecutionSteps>
+</AuditLog>

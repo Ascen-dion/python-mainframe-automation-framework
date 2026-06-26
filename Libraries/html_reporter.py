@@ -1,10 +1,10 @@
 import os
+import html
 from datetime import datetime
 
 def generate_reports(batch_results, batch_start_time):
     base_dir = os.path.dirname(os.path.dirname(__file__))
     
-    # NEW: Strictly Separated Folder Structure
     cons_rep_path = os.path.join(base_dir, "ExecutionEngine", "Reports", "Consolidated")
     ind_rep_path = os.path.join(base_dir, "ExecutionEngine", "Reports", "Individual")
     
@@ -13,7 +13,6 @@ def generate_reports(batch_results, batch_start_time):
     
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     
-    # NEW: Premium Enterprise CSS
     shared_css = """
     <style>
         :root { --primary: #0A2240; --secondary: #1F4E79; --pass: #10B981; --fail: #EF4444; --bg: #F3F4F6; }
@@ -65,40 +64,42 @@ def generate_reports(batch_results, batch_start_time):
         ind_file_name = f"{test_id}_{timestamp}.html"
         ind_report_file = os.path.join(ind_rep_path, ind_file_name)
         
+        # Safe extraction of the target variable
+        display_target = res.get('airport', 'N/A')
+        
         # --- Individual HTML ---
         i_rep = f"<!DOCTYPE html><html><head><title>{test_id} - Report</title>{shared_css}</head><body>"
         i_rep += f"<div class='navbar'><h2>Jarvis Execution Detail</h2><span>{batch_start_time.strftime('%Y-%m-%d %H:%M:%S')}</span></div>"
         i_rep += "<div class='container'><div class='card'><h3>Execution Summary</h3><div class='info-grid'>"
         i_rep += f"<div class='info-item'><strong>Test ID</strong><span>{test_id}</span></div>"
-        i_rep += f"<div class='info-item'><strong>Description</strong><span>{res['description']}</span></div>"
-        i_rep += f"<div class='info-item'><strong>Target System</strong><span>{res['airport']}</span></div>"
-        i_rep += f"<div class='info-item'><strong>Duration</strong><span>{res['duration']}s</span></div>"
+        i_rep += f"<div class='info-item'><strong>Description</strong><span>{res.get('description', 'N/A')}</span></div>"
+        i_rep += f"<div class='info-item'><strong>Target System</strong><span>{display_target}</span></div>"
+        i_rep += f"<div class='info-item'><strong>Duration</strong><span>{res.get('duration', '0')}s</span></div>"
         i_rep += f"<div class='info-item'><strong>Environment</strong><span>Mainframe SIT</span></div>"
         i_rep += f"<div class='info-item'><strong>Status</strong><span class='badge {status_class}'>{res['status']}</span></div>"
         i_rep += "</div></div>"
         
         i_rep += "<div class='card'><h3>Extracted Screen Payload</h3>"
-        i_rep += f"<div class='payload-box'>{res['forecast']}</div>"
+        i_rep += f"<div class='payload-box'>{html.escape(str(res.get('forecast', 'No data')))}</div>"
         i_rep += "</div></div></body></html>"
         
         with open(ind_report_file, "w") as f:
             f.write(i_rep)
 
         # --- Consolidated HTML Body ---
-        # Note the relative path pointing UP one directory to get from Consolidated -> Individual
         rel_path = f"../Individual/{ind_file_name}"
         html_execution_body += f"<button class='accordion' onclick=\"togglePanel('{test_id}')\">"
         html_execution_body += f"<div style='display:flex; align-items:center; gap:20px;'>"
         html_execution_body += f"<span style='width: 80px;'><strong>{test_id}</strong></span>"
-        html_execution_body += f"<span style='width: 250px; color: #4B5563;'>{res['description']}</span>"
-        html_execution_body += f"<span style='width: 100px;'>Target: {res['airport']}</span>"
-        html_execution_body += f"<span style='width: 80px;'>{res['duration']}s</span>"
+        html_execution_body += f"<span style='width: 250px; color: #4B5563;'>{res.get('description', 'N/A')}</span>"
+        html_execution_body += f"<span style='width: 100px;'>Target: {display_target}</span>"
+        html_execution_body += f"<span style='width: 80px;'>{res.get('duration', '0')}s</span>"
         html_execution_body += f"<a href='{rel_path}' target='_blank' class='view-link'>View Detail Report</a></div>"
         html_execution_body += f"<div><span class='badge {status_class}'>{res['status']}</span></div></button>"
         
         html_execution_body += f"<div id='panel-{test_id}' class='panel'><table>"
         html_execution_body += "<tr><th style='width:20%;'>Data Field</th><th>Captured Value</th></tr>"
-        html_execution_body += f"<tr><td>Raw Mainframe Output</td><td><div class='payload-box' style='padding:10px;'>{res['forecast']}</div></td></tr>"
+        html_execution_body += f"<tr><td>Raw Mainframe Output</td><td><div class='payload-box' style='padding:10px;'>{html.escape(str(res.get('forecast', 'No data')))}</div></td></tr>"
         html_execution_body += "</table><br></div>"
 
     # --- Finalize Dashboard ---

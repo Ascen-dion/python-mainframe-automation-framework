@@ -1,55 +1,55 @@
 <?xml version="1.0" ?>
 <AuditLog>
-    <TestCaseID>TC_003</TestCaseID>
-    <StartTime>2026-06-24 12:47:46.857603</StartTime>
+    <TestCaseID>TC_001</TestCaseID>
+    <StartTime>2026-06-26 13:49:48.541491</StartTime>
     <ExecutionSteps>
         <Step>
-            <Timestamp>12:47:46.859</Timestamp>
+            <Timestamp>13:49:48.548</Timestamp>
             <Action>SYSTEM</Action>
             <Status>INFO</Status>
-            <Details>Executing: Validate ORD Weather</Details>
+            <Details>Executing: Validate JFK Airport Weather (Flow: Weather)</Details>
         </Step>
         <Step>
-            <Timestamp>12:47:46.861</Timestamp>
+            <Timestamp>13:49:48.553</Timestamp>
             <Action>LOGIN</Action>
             <Status>INFO</Status>
-            <Details>Simulating Authentication for User: JARVIS_USR1</Details>
+            <Details>Simulating Authentication for User: GUEST</Details>
         </Step>
         <Step>
-            <Timestamp>12:47:46.864</Timestamp>
+            <Timestamp>13:49:48.555</Timestamp>
             <Action>NAVIGATE</Action>
             <Status>INFO</Status>
             <Details>Verifying main terminal prompt.</Details>
         </Step>
         <Step>
-            <Timestamp>12:47:47.082</Timestamp>
+            <Timestamp>13:49:48.758</Timestamp>
             <Action>INPUT</Action>
             <Status>INFO</Status>
-            <Details>Entering weather command for: ORD</Details>
+            <Details>Entering weather command for: JFK</Details>
         </Step>
         <Step>
-            <Timestamp>12:47:51.003</Timestamp>
+            <Timestamp>13:49:49.378</Timestamp>
             <Action>READ</Action>
             <Status>INFO</Status>
-            <Details>Capturing updated weather forecast screen.</Details>
+            <Details>Waiting for server to process...</Details>
         </Step>
         <Step>
-            <Timestamp>12:47:51.219</Timestamp>
+            <Timestamp>13:49:53.652</Timestamp>
             <Action>EXTRACT</Action>
             <Status>INFO</Status>
             <Details>Screen payload captured successfully.</Details>
         </Step>
         <Step>
-            <Timestamp>12:47:51.222</Timestamp>
+            <Timestamp>13:49:53.656</Timestamp>
             <Action>NAVIGATE</Action>
             <Status>INFO</Status>
-            <Details>Resetting screen back to main menu.</Details>
+            <Details>Ensuring clean menu state...</Details>
         </Step>
         <Step>
-            <Timestamp>12:47:52.437</Timestamp>
+            <Timestamp>13:49:53.869</Timestamp>
             <Action>FLOW_END</Action>
             <Status>INFO</Status>
-            <Details>Status: Passed | Duration: 5.58s</Details>
+            <Details>Status: Passed | Duration: 5.33s</Details>
         </Step>
     </ExecutionSteps>
 </AuditLog>
